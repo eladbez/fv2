@@ -1,0 +1,79 @@
+
+
+<h3>upload image file</h3>
+	<%= f.file_field :image %><br /><br />
+
+<table>
+	<thead>
+		<tr>
+			<th><%=f.label(:name)%></th>
+			<th><%=f.label(:taste)%></th>
+			<th><%=f.label(:culture)%></th>
+		<% unless session[:user_id] %>	
+			<th><%=f.label(:mealpart)%></th>
+			<th><%=f.label('shared?',:shared) if session[:user_id]%></th>
+		<% end %>
+		</tr>
+	</thead>
+	<tbody>		
+		<tr>
+			<td><%=f.text_field(:name)%></td>
+			<td><%=f.select(:taste,["sweet","sweet-sour","sour","piquant","spicy","spicy-sweet","salty","???another???"])%></td>
+			<td><%=f.text_field(:culture)%></td>
+		<% unless session[:user_id] %>	
+			<td><%=f.select(:mealpart,["appertif","first course","intermidiate","mail course","dessert","tea","coffee","break","???another???"])%></td>
+			<td><%=f.check_box(:shared) if session[:user_id]%></td>
+		<% end %>
+		</tr>
+	</tbody>
+</table><br /><br />
+
+<% if session[:user_id] %>		
+<table>
+	<thead>
+		<tr>
+			<th><%=f.label(:mealpart)%></th>
+			<th><%=f.label('shared?',:shared) if session[:user_id]%></th>
+		</tr>
+	</thead>
+	<tbody>		
+		<tr>
+			<td><%=f.select(:mealpart,["appertif","first course","intermidiate","mail course","dessert","tea","coffee","break","???another???"])%></td>
+			<td><%=f.check_box(:shared) if session[:user_id]%></td>
+		</tr>
+	</tbody>
+</table><br /><br />		
+<% end %>
+
+<h2>ingredients</h2>
+<table class="small-table">
+	<thead>
+		<tr>
+			<th><u>quantity</u></th>
+			<th><u>measure</u></th>
+			<th><u>name</u></th>
+			<th>&nbsp;</th>
+		</tr>
+	</thead>
+	<tbody data-target="a">
+
+<% if stat="edit" %> 
+	<%= f.fields_for :groceries do |fg|%> 
+		<%= render partial: 'grocery_fields', locals: {f: fg} %>
+	<% end %>
+<% end %>
+
+	</tbody>
+</table>	<br />
+<%= add_fields 'add ingredient', f, :groceries %>
+
+<br /><br />
+
+<%=f.label(:recipe)%><br />
+<%= f.text_area :recipe, size: "40x10"%>
+<br /><br />
+
+<%=f.label(:health_value)%><br />
+<%= f.text_area :health_value, size: "40x10"%>
+<br /><br />
+

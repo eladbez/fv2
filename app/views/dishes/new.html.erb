@@ -1,0 +1,29 @@
+<% content_for :head do %>
+   <%= javascript_include_tag('menual_nesting')%>
+<% end %>
+
+<%=error_messages_for(@dish)%>
+
+
+
+<h2>add your recipe</h2>
+
+
+
+<div class="new dish">	
+<%= form_for(@dish, :multipart => true) do |f| %>
+	<%= render partial: 'form', locals: {stat: @stat, f: f} %>
+<div class="submit buttons">
+	 <%= f.submit("Catalog recipe") %>
+</div>
+<% end %>
+
+</div>
+
+
+
+
+
+
+
+

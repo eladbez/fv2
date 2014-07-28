@@ -1,0 +1,226 @@
+//= require_self
+
+var mng;
+var orgWindow;
+var searchWindow;
+var imgSrc;
+var userId;
+var userName;
+var chose;
+var dishId;
+//start the add participation part------------------------------------------------------
+
+function add_par(){
+			  orgWindow = window;			 
+			  searchWindow = window.open("http://localhost:3000/users/search", "search","left=200, top=100, height=300, width=300, menubar=yes");
+			  searchWindow.focus();
+		}	
+				
+function printUser(userIdF,userNameF,imgSrcF){
+	var a  = document.createElement("a");
+	a.setAttribute("href","/users/"+userIdF);
+	a.setAttribute("id",new Date().getTime());
+	var aid = a.id;
+	var aText = document.createTextNode(userNameF);
+	var img = document.createElement("img");
+	img.setAttribute("alt","user picture");
+	img.setAttribute("src",imgSrcF);
+	img.setAttribute("height","100");
+	img.setAttribute("width","100");
+	var myDiv = document.createElement("div");
+	myDiv.className = "user_block";
+	//a.className = "user_block"; /* instead of the above */
+	a.appendChild(img);
+	var brk = document.createElement("br");
+	a.appendChild(brk);
+	a.appendChild(aText);
+	myDiv.appendChild(a); 
+	$("#par").find("tbody").append("<tr><td>");
+	$("#par").find("td").last().append(myDiv);
+	$("#par").find("tr").last().append("<td>");
+	$("#"+aid).closest("div").data("aid",aid);
+	$(".user_block").last().droppable({drop: function(){
+		$(this).effect( "bounce" );
+		chose = "assign";
+		var aidd = $(this).data("aid"); 
+		$.get("http://localhost:3000/feasts/new", {aid: aidd, dish_id: dishId}, null, "script");
+	}});
+	chose = "user";
+	$.get("http://localhost:3000/feasts/new", {user_id: userIdF, mng: mng}, null, "script");
+}
+		
+function add_user(butt){
+	userId = $(butt).data('userid');
+	userName = $(butt).data('username');
+	imgSrc = $(butt).data('imgsrc').image.url;
+	searchWindow.close();
+	orgWindow.focus();
+	printUser(userId,userName,imgSrc);
+	
+}		
+		
+
+function remove_fields(link){
+	$(link).parent().find("input[id*=_destroy]").val("1");
+	$(link).parent().hide();
+	$(link).hide();
+	$(link).closest("tr").find("td:last").find("img").trigger("click");
+}
+
+//end the add participation part------------------------------------------------------
+
+
+function addy(content){
+	alert("addy");
+	$("#par").after("<p>hello</p>");	
+}
+
+//start the add course part------------------------------------------------------------
+
+function add_course(){
+			  orgWindowD = window;			 
+			  searchWindowD = window.open("http://localhost:3000/dishes/search_form", "search","left=200, top=100, height=330, width=330, menubar=yes");
+			  searchWindowD.focus();
+}	
+
+function printDish(dishIdF,dishNameF,imgSrcF){
+	var a = document.createElement("a");
+	a.setAttribute("href","/dishes/"+dishIdF);
+	a.setAttribute("id",new Date().getTime());
+	var aText = document.createTextNode(dishNameF);
+	var img = document.createElement("img");
+	img.setAttribute("alt","dish picture");
+	img.setAttribute("src",imgSrcF);
+	img.setAttribute("height","100");
+	img.setAttribute("width","100");
+	var myDiv = document.createElement("div");
+	myDiv.className = "dish_block";
+	// a.className = "dish_block"; 
+	a.appendChild(img);
+	var brk = document.createElement("br");
+	a.appendChild(brk);
+	a.appendChild(aText);
+	myDiv.appendChild(a); 
+	$("#course").find("table").append("<tr><td>");
+	$("#course").find("td").last().append(myDiv);
+		
+	//this makes the dish draggable
+	
+	$(".dish_block").last().draggable({ 
+		start: function(){
+	dishId = Number($(this).find("a").attr("href").slice(8,9));
+	
+	},
+	revert: true
+	});	
+	chose = "dish";
+	$.get("http://localhost:3000/feasts/new", {dish_id: dishId}, null, "script");
+}
+
+function add_dish(butt){
+	dishId = $(butt).data('dishid');
+	dishName = $(butt).data('dishname');
+	imgSrcD = $(butt).data('imgsrcd').image.url;
+	searchWindowD.close();
+	orgWindowD.focus();
+	printDish(dishId,dishName,imgSrcD);
+	
+}		
+
+
+function remove_fields_dish(link){
+	$(link).parent().find("input[id*=_destroy]").val("1");
+	$(link).parent().hide();
+	$(link).hide();
+}
+
+
+
+//end the add course part------------------------------------------------------------
+
+//begin :add the former information-------------------------------------
+
+$(document).ready(function(){
+		var stat = $("#info").data("action");
+		if (stat != "edit"){
+			t1= $("#par").data('myid');
+			t2= $("#par").data('myname');
+			t3= $("#par").data('myimage').image.url;
+			mng = "1";
+			printUser(t1,t2,t3);
+		}else{
+		
+	//assigning the users for edit	
+
+	
+
+	var divArray = $("#par").find("input[id$=user_id]").closest("div");
+	var arrayLength = divArray.length;
+	for (var i = 0; i < arrayLength; i++) {
+	    userId = $(divArray[i]).find("input[id$=user_id]").attr("value");
+		userName = $("#info").find("dfn[id="+userId+"]").first().data("username");
+		userImage = $("#info").find("dfn[id="+userId+"]").first().data("userimage");
+		var aid = new Date().getTime();
+		$(divArray[i]).data("aid",aid);
+		var userBlock = "<a href='/users/" + userId + "' id='"+aid+"'><img alt='user picture' src='"+userImage.image.url+"' height='100' width='100'><br>"+userName+"</a><br />";
+		var removeBlock = "<a class='cl_both' href='#' onclick='remove_fields(this); return false;'>remove</a>";
+		$(divArray[i]).prepend(removeBlock);
+		$(divArray[i]).prepend(userBlock);
+		$(divArray[i]).droppable({drop: function(){
+			$(this).effect( "bounce" );
+			chose = "assign";
+				var aidd = $(this).data("aid");
+				$.get("http://localhost:3000/feasts/new", {aid: aidd, dish_id: dishId, dish_name: dishName}, null, "script");
+			}});
+		
+		//assigning the dishes for the user
+		var obArray = $(divArray[i]).find("input[id*=obligations]");
+		var obLength = obArray.length;
+		for (var x = 0; x < obLength; x=x+3) {
+			dishId = $(obArray[x]).attr("value");
+			var obId = $(obArray[x]).attr("id").slice(0,-8);
+			dishName = $("#info").find("#"+dishId+"d").first().data("dishname");
+			$(obArray[x]).closest("tr").find("td").last().append("<dfn>"+dishName+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+			$(obArray[x]).closest("tr").find("td").last().append("<img alt='cancel - x' class='x-pic' height='30' src='/assets/x-blue.png' width='30'>");
+			$(obArray[x]).closest("tr").find("img:last").hover(
+				function(){
+					$(this).attr("src","/assets/x-red.png");
+				},
+				function(){
+					$(this).attr("src","/assets/x-blue.png");
+				}
+			);
+			
+			
+			$(obArray[x]).closest("tr").find("img:last").click(function(){
+				$(this).hide();
+				$(this).prev().hide();
+				$("#par").find("input[id ="+obId+"__destroy]").val("1");
+			});
+				
+		}
+	};
+	
+	
+	//showing the dishes for edit
+	var divArray = $("#course").find("input[id$=dish_id]").closest("div");
+	var arrayLength = divArray.length;
+	for (var i = 0; i < arrayLength; i++) {
+	    dishId = $(divArray[i]).find("input[id$=dish_id]").attr("value");
+		dishName = $("#info").find("dfn[id="+dishId+"d]").first().data("dishname");
+		dishImage = $("#info").find("dfn[id="+dishId+"d]").first().data("dishimage");
+		var dishBlock = "<a href='/dishes/" + dishId + "'><img alt='dish picture' src='"+dishImage.image.url+"' height='100' width='100'><br>"+dishName+"</a><br />";
+		var removeBlock = "<a class='cl_both' href='#' onclick='remove_fields_dish(this); return false;'>remove</a>";
+		$(divArray[i]).prepend(removeBlock);
+		$(divArray[i]).prepend(dishBlock);
+	    $(divArray[i]).draggable({ 
+			start: function(){
+			dishId = Number($(this).find("a").attr("href").slice(8,9));
+		},
+		revert: true
+	  });		
+	}
+	}
+});
+
+//end: add the former information-------------------------------------

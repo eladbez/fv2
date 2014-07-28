@@ -1,0 +1,313 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/*
+ *= require_self
+ *= require_jquery-ui
+ *= require_jquery-ui.theme
+ *= require_jquery-ui.structure.min
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*end of css reset====================================================*/
+/*styling starts here*/
+
+
+/*fonts-added----------------------------------------------------------------------------*/
+
+/* relative url needs editing as files will move.*/
+
+@font-face{ 
+	font-family: 'morganhand';
+	src: url('fonts/HenryMorganHand.ttf') format('truetype');
+}
+
+@font-face{ 
+	font-family: 'blackjack';
+	src: url('fonts/black_jack.ttf') format('truetype');
+}
+
+/*color set----------------------------------------------------------------------------------
+
+pink === hsl(10,50%,88%) 
+light-green ==== hsl(160,70%,60%);
+
+------------------------------------------------------------------------------------------------
+*/
+
+/*starting to style */
+/* style order : 
+body styles (selector , class , id)
+section styles
+inner styles
+*/
+
+body {
+	text-align : left;
+	background-color: hsl(10,50%,88%);
+	font-size: 1.5em;
+	font-family:blackjack; 
+}	
+
+h1 { 
+	text-align : center;
+	font-size: 2em; 
+	font-family:blackjack; 
+	margin:5px;
+}
+
+h2 { 
+ font-size: 180%; 
+ text-align:left; 
+ text-decoration:underline; 
+ clear:both;	
+}
+
+h3 { font-size: 160%; }
+h4 { font-size: 140%; }
+h5 { font-size: 120%; }
+h6 { font-size: 100%; }
+
+table {
+		width: 100%;
+		height:100px;
+}
+
+th{
+	
+	text-decoration:none;
+}
+td{
+	
+	white-space: pre-line;
+}
+
+
+aside{
+	float:	left;
+	margin-top:30px;
+	margin-left:5px;
+	width: 25%;
+	
+}
+
+img{
+	border: solid gray 1px;
+}
+
+
+p{
+	text-align:left;
+}
+hr{
+	clear:both;
+	
+}
+footer { 
+		
+		clear:both;
+		position:static;
+		margin-top:40px;
+		margin-right:40px;
+}
+
+/*classes----------------------------------------------------------------------*/
+
+.add_participants{
+	opacity:0.5;
+}
+.add_participants:active {
+	opacity:1;
+}
+
+
+.imageWrapper{
+	width:500px;
+	float:left;
+	height:100px;	
+}
+.action{
+	color:red;
+	font-size: 100%;
+}
+.photoShow {
+ 	margin:20px;
+	margin-right:120px;
+	float:right; 
+    height:60px;
+    position: static;
+}
+.photoShow div {
+    position:absolute;
+    z-index: 0;
+}
+.photoShow div.previous {
+    z-index: 1;
+}
+.photoShow div.current {
+    z-index: 2;
+}
+.feast{
+	background-color:hsla(200,100%,80%,0.6);
+	padding:20px;
+	margin:40px;
+}
+.user{
+	float:left;
+	margin:20px;
+}
+.dish{
+	float:left;
+	margin:20px;	
+}
+
+.user_block{
+	width:30%px;
+	height:130px;
+	margin:10px;
+	margin-bottom:30px;
+	float:left;
+	display:block;
+}
+.dish_block{
+	width:30%px;
+	height:130px;
+	margin:10px;
+	margin-bottom:30px;
+	float:left;
+	display:block;
+}
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+ .cl_both{
+		clear:both;
+		color:red;
+		margin-left:10px;
+ }
+ .x-pic{
+ 	border:none;
+	display:inline-block;
+}
+.no-dsp{
+	display:none;
+}
+.small-table{
+	width:70%;
+	margin-top:20px;
+}
+.small-table th{
+	text-decoration:none;
+}
+
+/* some jquery UI classes -------------------------------------- */
+/*
+.ui-tooltip, .arrow:after {
+    background: black;
+    border: 2px solid white;
+  }
+  .ui-tooltip {
+    padding: 10px 20px;
+    color: white;
+    border-radius: 20px;
+    font: bold 14px "Helvetica Neue", Sans-Serif;
+    box-shadow: 0 0 7px black;
+  }
+  .arrow {
+    width: 70px;
+    height: 16px;
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: -16px;
+  }
+  .arrow.top {
+    top: -16px;
+    bottom: auto;
+  }
+  .arrow.left {
+    left: 20%;
+  }
+  .arrow:after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    width: 25px;
+    height: 25px;
+    box-shadow: 6px 5px 9px -9px black;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  .arrow.top:after {
+    bottom: -20px;
+    top: auto;
+  }
+ 
+*/  
+/*id's---------------------------------------------------------------------------*/
+#photoShow1{
+	margin-left:40px;
+}
+
+#content{
+	background-color:white;
+	width:62%;
+	height:100%;
+	float:right;
+	border: solid gray 1px;	
+	padding:10px;
+	position: static;;
+}
+

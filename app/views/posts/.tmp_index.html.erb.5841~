@@ -1,0 +1,34 @@
+<h1>You received the following notifications</h1>
+	
+	<% @fivs.each do |fiv| %>
+		<%feast = Feast.find(fiv.feast_id)%>      
+        <%= image_tag(feast.image_url.to_s, :size => '300x300'), {:action =>'show',:id => fiv.feast_id}, :class => 'action' %><br />
+        <p>feast time: <%=feast.feast_time%> and place :<%=feast.feast_place%></p>
+		<%= render(partial: 'feast_invt', locals: {feast: feast,fiv: fiv})%>
+	<% end %>
+	
+    
+		
+		<%if false%>        
+			
+			 <% @posts.each do |post| %>
+		<%feast = Feast.find(post.feast_id)%>      
+        <%= image_tag(feast.image_url.to_s, :size => '300x300'), {:action =>'show',:id => post.feast_id}, :class => 'action' %><br />
+        <p>feast time: <%=feast.feast_time%> and place :<%=feast.feast_place%></p>
+		<p><u>manager messege</u></p><br /> 
+		<%= feast.content %><br />
+			
+			
+			<!--fix it -->
+			<%= button_to 'join feast'%>
+			<%= button_to 'maybe'%>
+			<%= button_to 'reject invitation'%>
+       	 	<%= link_to 'Delete post', {action: 'delete', controller: 'feast_invts'} %>
+     	 <% end %>
+    <% end %>
+  
+
+
+<br>
+
+

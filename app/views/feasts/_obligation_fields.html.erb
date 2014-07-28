@@ -1,0 +1,7 @@
+
+<%new_object = Participation.reflect_on_association(:obligations).klass.new%>
+<%= fp.fields_for(:obligations, new_object, child_index: "new_obli", class: "fields") do |fpo| %>
+		<%= fpo.hidden_field(:dish_id) %> 
+		<%= fpo.hidden_field(:_destroy,value: false) %>
+<%end%>
+	

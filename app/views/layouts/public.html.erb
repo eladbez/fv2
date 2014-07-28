@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    	<title>the amazing COOK BOOK <%= "| #{@username}" if @username %></title>
+		<link rel="shortcut icon" href="/assets/book.jpg" />
+   	 <meta name="author" content="elad bezalel"> <!-- the username needs suplying --> 
+  	<!--<%= stylesheet_link_tag('public1') %> --><!-- this css page needs creation -->
+   	 <%= stylesheet_link_tag('public') %>
+	 <%= javascript_include_tag('application')%>
+	  <%= yield :head %>
+	 <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>welcome to cook book</h1>
+    </header>
+	<%= image_tag('book.jpg', :size => '50x50', :alt => 'cook book photo',) %>
+     
+    
+      <%= render(:partial => '/layouts/navigation') %>
+      
+     
+      <!--the beginnig of the gallery of three rotating images. -->
+      
+  <div class="imageWrapper">
+ <div id="photoShow1" class="photoShow">
+    	
+        <div class="current">
+            <%= image_tag('fish.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('stir_fry2.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('antipasti.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        
+    </div>
+
+
+
+<div id="photoShow2" class="photoShow">
+    	
+        <div class="current">
+            <%= image_tag('beef.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('mujadara.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('rchicken.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        
+    </div>
+    
+     <div id="photoShow3" class="photoShow">
+    	
+        <div class="current">
+            <%= image_tag('scake.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('hbcake.jpg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        <div>
+            <%= image_tag('Ice_Cream.jpeg', :size => '200x200', :alt => 'Photo Gallery') %>
+        </div>
+        
+    </div>
+
+<!--the end of the gallery of three rotating images.------------------------ -->
+
+	</div>  
+      <br><br><br><br> 
+ 	  <% if !flash[:notice].blank? %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+    <br /><br /><br />
+      <div id="content">
+      
+        <%= yield %>
+      
+      </div>   
+       
+     
+     <footer>
+      	<p id="copyright">&copy; elad bezalel all rights reserved</p>
+    </footer>
+  </body>
+  
+	
+</html>
