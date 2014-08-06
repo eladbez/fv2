@@ -4,10 +4,11 @@
   <head>
     <% include_gon %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    	<title>the amazing COOK BOOK <%= "| #{@username}" if @username %></title>
-		<link rel="shortcut icon" href="/assets/book.jpg" />
-   	 <meta name="author" content="elad bezalel">
-  	 
+    	<title>the amazing DOG BOOK <%= "| #{@username}" if @username %></title>
+		<link rel="shortcut icon" href="/assets/dog-book.jpg" />
+   	 <meta name="author" content="elad bezalel"> <!-- the username needs suplying --> 
+  	<!--<%= stylesheet_link_tag('public1') %> --><!-- this css page needs creation -->
+   	  	 
 	 <%= stylesheet_link_tag('login') %>
 	 <%= javascript_include_tag('application')%>
 	 <%= yield :head %>
@@ -35,17 +36,17 @@
 <br /><br />
 
 <%=link_to :controller => 'feasts', :action => 'list' do%>
-	<p><u>my feasts</u></p>
+	<p><u>my competitions</u></p>
 <%end%>
 <br /><br />
 
 <%=link_to :controller => 'dishes' do%>
-	<p><u>my recipes</u></p>
+	<p><u>my dogs</u></p>
 <%end%>
 <br /><br />
 
 <%=link_to :controller => 'dishes', :action => 'sort_form' do%>
-	<p><u>public recipes</u></p>
+	<p><u>general dogs</u></p>
 <%end%>
 <br /><br />
 
@@ -60,13 +61,13 @@
  <div id="photoShow1" class="photoShow">
     	
         <div class="current">
-            <%= image_tag('fish.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('samoy-dogs.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('stir_fry2.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-mini.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('antipasti.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-water.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         
     </div>
@@ -76,13 +77,13 @@
 <div id="photoShow2" class="photoShow">
     	
         <div class="current">
-            <%= image_tag('beef.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-wolf.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('mujadara.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-stupid.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('rchicken.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('pupy.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         
     </div>
@@ -90,13 +91,13 @@
      <div id="photoShow3" class="photoShow">
     	
         <div class="current">
-            <%= image_tag('scake.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-hands.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('hbcake.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-huskey.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         <div>
-            <%= image_tag('ice_cream.jpeg', :size => '50x50', :alt => 'Photo Gallery') %>
+            <%= image_tag('dog-looking.jpg', :size => '50x50', :alt => 'Photo Gallery') %>
         </div>
         
     </div>

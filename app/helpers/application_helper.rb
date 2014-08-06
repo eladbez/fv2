@@ -27,7 +27,7 @@ module ApplicationHelper
   
   def feast_image(feast='')
     if feast.image.blank?
-       image_tag('feast_normal.jpg', :size => '260x260', :alt => 'feast picture') 
+       image_tag('compet_normal.jpg', :size => '260x260', :alt => 'feast picture') 
     else
        image_tag feast.image_url.to_s, :size => '260x260' 
     end
@@ -35,7 +35,7 @@ module ApplicationHelper
   
   def dish_image(dish='',size='')
     if dish.image.blank?
-       image_tag('dish_normal.jpg', :size => size, :alt => 'dish picture') 
+       image_tag('dog_normal.jpg', :size => size, :alt => 'dish picture') 
     else
        image_tag dish.image_url.to_s, :size => size 
     end

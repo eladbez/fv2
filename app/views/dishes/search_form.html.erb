@@ -1,19 +1,19 @@
 
-<h2><u>food search - search for dishes</u></h2>
+<h2><u>dog search - search for dogs</u></h2>
 
 <%= form_tag(:action=>'results') do %>
 <table>
 	<tr>
 		<th><%=label_tag(:name)%></th>
-		<th><%=label_tag(:taste)%></th>
+		<th><%=label_tag(:taste,"color")%></th>
 	</tr>
 		
 	<tr>	
 		<td><%= text_field_tag(:name) %></td>
-		<td><%=select_tag("taste",options_for_select(["sweet","sweet-sour","sour","piquant","spicy","spicy-sweet","salty","???another???"]))%></td>
+		<td><%=select_tag("taste",options_for_select(["white","gray","black and white","brown","white-brown"]))%></td>
 	</tr>
 	<tr>
-		<th><%=label_tag(:culture)%></th>
+		<th><%=label_tag(:culture,"race")%></th>
 	</tr>
 
 	<tr>
@@ -22,7 +22,7 @@
 
 </table>
   	
-		<%= submit_tag "create recipe", :type => :image,:src => image_path("cook2.png") %>
+		<%= submit_tag "log dog", :type => :image,:src => image_path("go-get.jpg") %>
  		
  		
 	</div>

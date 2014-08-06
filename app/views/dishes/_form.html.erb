@@ -7,21 +7,21 @@
 	<thead>
 		<tr>
 			<th><%=f.label(:name)%></th>
-			<th><%=f.label(:taste)%></th>
-			<th><%=f.label(:culture)%></th>
+			<th><%=f.label(:taste,"color")%></th>
+			<th><%=f.label(:culture,"race")%></th>
 		<% unless session[:user_id] %>	
-			<th><%=f.label(:mealpart)%></th>
-			<th><%=f.label('shared?',:shared) if session[:user_id]%></th>
+			<th><%=f.label(:mealpart, "aggresive?")%></th>
+			<th><%=f.label('show to everyone?',:shared) if session[:user_id]%></th>
 		<% end %>
 		</tr>
 	</thead>
 	<tbody>		
 		<tr>
 			<td><%=f.text_field(:name)%></td>
-			<td><%=f.select(:taste,["sweet","sweet-sour","sour","piquant","spicy","spicy-sweet","salty","???another???"])%></td>
+			<td><%=f.select(:taste,["white","gray","black and white","brown","white-brown"])%></td>
 			<td><%=f.text_field(:culture)%></td>
 		<% unless session[:user_id] %>	
-			<td><%=f.select(:mealpart,["appertif","first course","intermidiate","mail course","dessert","tea","coffee","break","???another???"])%></td>
+			<td><%=f.select(:mealpart,["killer","angry","barks alot","nice","quiet"])%></td>
 			<td><%=f.check_box(:shared) if session[:user_id]%></td>
 		<% end %>
 		</tr>
@@ -38,14 +38,14 @@
 	</thead>
 	<tbody>		
 		<tr>
-			<td><%=f.select(:mealpart,["appertif","first course","intermidiate","mail course","dessert","tea","coffee","break","???another???"])%></td>
+			<td><%=f.select(:mealpart,["killer","angry","barks alot","nice","quiet"])%></td>
 			<td><%=f.check_box(:shared) if session[:user_id]%></td>
 		</tr>
 	</tbody>
 </table><br /><br />		
 <% end %>
 
-<h2>ingredients</h2>
+<h2>dayly rations</h2>
 <table class="small-table">
 	<thead>
 		<tr>
@@ -65,15 +65,15 @@
 
 	</tbody>
 </table>	<br />
-<%= add_fields 'add ingredient', f, :groceries %>
+<%= add_fields 'add food', f, :groceries %>
 
 <br /><br />
 
-<%=f.label(:recipe)%><br />
+<%=f.label(:recipe, "character")%><br />
 <%= f.text_area :recipe, size: "40x10"%>
 <br /><br />
 
-<%=f.label(:health_value)%><br />
+<%=f.label(:health_value, "life style")%><br />
 <%= f.text_area :health_value, size: "40x10"%>
 <br /><br />
 

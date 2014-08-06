@@ -1,10 +1,10 @@
 
 
-<%= f.label("feast name", :name)%><br /><br />
+<%= f.label("competition name", :name)%><br /><br />
 		<%= f.text_field(:name) %> <br /><br />
-		<%= f.label("feast time", :feast_time)%><br /><br />
+		<%= f.label("competition time", :feast_time)%><br /><br />
 		<%= f.datetime_select(:feast_time, :order => [:day, :month ,:year]) %><br /><br />
-		<%= f.label("feast place", :feast_place)%><br /><br />
+		<%= f.label("competition place", :feast_place)%><br /><br />
 		<%= f.text_field(:feast_place) %> <br /><br />
 		upload image file <br /><br />
 		<%= f.file_field :image %> <br /><br />
@@ -55,4 +55,4 @@
 		</table>		
 	</div>	
 <br /><br />
-	 <%=submit_tag "initiate feast"%>
+	 <%=submit_tag "initiate competition"%>

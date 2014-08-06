@@ -3,9 +3,9 @@
 		<tr>	
 			<th><u>name</u></th>
 			<th>&nbsp;</th>
-			<th><u>taste</u></th>	
-			<th><u>culture</u></th>
-			<th>&nbsp;<u>mealpart</u></th>
+			<th><u>color</u></th>	
+			<th><u>race</u></th>
+			<th>&nbsp;aggressive?</th>
 			<th>&nbsp;</th>
 		</tr>
 <% dishes.each do |dish| %>
@@ -16,7 +16,7 @@
 		<td>&nbsp;&nbsp;<%= dish.culture %></td>
 		<td>&nbsp;&nbsp;<%= dish.mealpart %></td>
 		<%if dish.belongings.where(user_id: session[:user_id]) %>				
-			<td>&nbsp;<%=link_to("delete recipe", delete_dish_path(dish.id), :class => 'action' )%></td>
+			<td>&nbsp;<%=link_to("delete dog", delete_dish_path(dish.id), :class => 'action' )%></td>
 		<%end%>
 			
 	</tr>

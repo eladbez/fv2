@@ -34,7 +34,7 @@ class DishesController < ApplicationController
       @dish.belongings.build(user_id: session[:user_id])
     end
    if @dish.save
-      flash[:notice]="your dish is catalogged"
+      flash[:notice]="your dog is catalogged"
       unless session[:user_id]
         redirect_to(:action => 'sort_form')
       else
@@ -48,7 +48,7 @@ class DishesController < ApplicationController
   def update
     @dish = Dish.find(params[:id])
     if @dish.update_attributes(dish_params)
-      flash[:notice]="dish updated"
+      flash[:notice]="dog logs updated"
       unless session[:user_id]
         redirect_to(:action => 'sort_form')
       else
@@ -73,7 +73,7 @@ class DishesController < ApplicationController
   def destroy
     dish = Dish.find(params[:id])
     dish.destroy
-    flash[:notice] = "this recipe is no more!"
+    flash[:notice] = "this dog is deleted from catalog"
     unless session[:user_id]
       redirect_to(:action => 'sort_form')
     else

@@ -1,15 +1,15 @@
-<h1> my feast list </h1>
+<h1> my competition list </h1>
 
 <div class="feast">
 <%= link_to({:action => 'new'}) do%>
-	 <%= image_tag('feast_new.jpg', :size => '260x260', :alt => 'new dish') %>
+	 <%= image_tag('compet_new.jpg', :size => '260x260', :alt => 'new competition') %>
 <%end%>
 </div>
 <hr />
 
-<h2>managed feasts</h2><br />
+<h2>managed competitions</h2><br />
 <%if @user_feast_m.blank? %>
-	<p>there are no managed feasts</p>
+	<p>there are no managed competitions</p>
 <%end%>
 
 <%@user_feast_m.each do |f|%>
@@ -18,13 +18,13 @@
 		<%=feast_image(f)%>
 	<%end%>
 
-	<p><u> feast time: </u><%=f.feast_time%></p><br />
-	<p><u>feast place: </u><%=f.feast_place%></p><br /><br />
+	<p><u> competition time: </u><%=f.feast_time%></p><br />
+	<p><u>competition place: </u><%=f.feast_place%></p><br /><br />
 
 </div>	
 	    
 		
-		<%= link_to('delete feast', delete_feast_path(f.id)) %>
+		<%= link_to('delete competition', delete_feast_path(f.id)) %>
 		
 		<br /><br /><br />
 
@@ -45,9 +45,9 @@
 <br /><br /><br /><br />
 
 
-<h2>participated feast list</h2>
+<h2>participated competition list</h2>
 	<%if @user_feast_p.blank? %>
-		<p>you are not participating in any feasts</p>
+		<p>you are not participating in any competitions</p>
 	<%end%>
 
 
@@ -57,13 +57,13 @@
 			<%=feast_image(f)%>
 		<%end%>
 
-		<p><u> feast time: </u><%=f.feast_time%></p><br />
-		<p><u>feast place: </u><%=f.feast_place%></p><br /><br />
+		<p><u> competition time: </u><%=f.feast_time%></p><br />
+		<p><u>competition place: </u><%=f.feast_place%></p><br /><br />
 
 	</div>	
 	    
 		
-		<%= link_to('delete feast', delete_feast_path(f.id)) %> 
+		<%= link_to('delete competition', delete_feast_path(f.id)) %> 
 		
 		<br /><br /><br />
 

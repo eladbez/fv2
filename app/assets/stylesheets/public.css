@@ -107,7 +107,7 @@ table {
 
 th{
 	
-	text-decoration:underline;
+	text-decoration:none;
 }
 td{
 	
@@ -163,7 +163,9 @@ footer {
 .left{
 	float:left;
 }
-
+.notice{
+	clear:both;
+}
 #photoShow1{
 	margin-left:40px;
 }

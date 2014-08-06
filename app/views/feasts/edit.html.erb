@@ -17,11 +17,11 @@
 
 <%= form_for @feast, :multipart => true do |f|%>
 
-<%= f.label("feast name", :name)%><br /><br />
+<%= f.label("competition name", :name)%><br /><br />
 		<%= f.text_field(:name) %> <br /><br />
-		<%= f.label("feast time", :feast_time)%><br /><br />
+		<%= f.label(:feast_time, "competition time")%><br /><br />
 		<%= f.datetime_select(:feast_time, :order => [:day, :month ,:year]) %><br /><br />
-		<%= f.label("feast place", :feast_place)%><br /><br />
+		<%= f.label(:feast_place, "competition place")%><br /><br />
 		<%= f.text_field(:feast_place) %> <br /><br />
 		upload image file <br /><br />
 		<%= f.file_field :image %> <br /><br />
@@ -78,12 +78,12 @@
 
 <br /><br /><br /><br /><br /><br />
 
-<h2>dishes
+<h2>dogs
 	<% @fields2 = render(partial: 'course_fields', locals: {f: f})%>
 	<u>
 		 <%= link_to '#', :onclick => "add_course(); return false;",class: "right",id: "add_course", 
              data: {content: "#{@fields2}"} do %>
-		 <%= image_tag('add_dish.png', :size => '100x100', :alt => 'Photo Gallery') %>
+		 <%= image_tag('add_dog.jpg', :size => '100x100', :alt => 'Photo Gallery') %>
 		 <%end%>
     </u>
 </h2>	
@@ -106,7 +106,7 @@
 		</table>		
 	</div>	
 <br /><br />
-	 <%=submit_tag "update feast"%>
+	 <%=submit_tag "update competition"%>
 
 <%end%> <!-- form end -->
 

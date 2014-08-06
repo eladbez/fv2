@@ -108,7 +108,7 @@ function printDish(dishIdF,dishNameF,imgSrcF){
 	
 	$(".dish_block").last().draggable({ 
 		start: function(){
-	dishId = Number($(this).find("a").attr("href").slice(8,9));
+	dishId = Number($(this).find("a").attr("href").slice(8,1000000000000));
 	
 	},
 	revert: true

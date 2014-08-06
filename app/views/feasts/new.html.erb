@@ -2,19 +2,19 @@
    <%= javascript_include_tag('feast')%>
 <% end %>
  
-<h1>let the feast begin!!</h1>
-<p>please enter all feast deatails</p><br />
+<h1>let the competition begin!!</h1>
+<p>please enter all competition deatails</p><br />
 
 <%=error_messages_for(@feast)%>
 
 <%= form_for @feast, :multipart => true do |f|%>
 
  	
-<%= f.label("feast name", :name)%><br /><br />
+<%= f.label(:name, "competition name")%><br /><br />
 		<%= f.text_field(:name) %> <br /><br />
-		<%= f.label("feast time", :feast_time)%><br /><br />
+		<%= f.label(:feast_time, "competition time")%><br /><br />
 		<%= f.datetime_select(:feast_time, :order => [:day, :month ,:year]) %><br /><br />
-		<%= f.label("feast place", :feast_place)%><br /><br />
+		<%= f.label(:feast_place, "competition place")%><br /><br />
 		<%= f.text_field(:feast_place) %> <br /><br />
 		upload image file <br /><br />
 		<%= f.file_field :image %> <br /><br />
@@ -48,12 +48,12 @@
 
 <br /><br /><br /><br /><br /><br />
 
-<h2>dishes
+<h2>dogs
 	<% @fields2 = render(partial: 'course_fields', locals: {f: f})%>
 	<u>
 		 <%= link_to '#', :onclick => "add_course(); return false;",class: "right",id: "add_course", 
              data: {content: "#{@fields2}"} do %>
-		 <%= image_tag('add_dish.png', :size => '100x100', :alt => 'Photo Gallery') %>
+		 <%= image_tag('add_dog.jpg', :size => '100x100', :alt => 'Photo Gallery') %>
 		 <%end%>
     </u>
 </h2>	
@@ -65,7 +65,7 @@
 		</table>		
 	</div>	
 <br /><br />
-	 <%=submit_tag "initiate feast"%>
+	 <%=submit_tag "initiate competition"%>
 
 <%end%> <!-- form end -->
 

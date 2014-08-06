@@ -4,14 +4,14 @@
 
 <%=error_messages_for(@dish)%>
 
-<h2>change recipe</h2>
+<h2>change dog logs</h2>
 
 <div>
 <%= form_for @dish do |f| %>
 
 	<%= render(:partial => "form", :locals => {stat: @stat, :f => f})%>
 
-<%= submit_tag("update recipe") %>
+<%= submit_tag("update dog details") %>
 
 <%end%>
 </div>
