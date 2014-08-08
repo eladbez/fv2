@@ -1,11 +1,11 @@
 <div id="feast<%=feast.id%>" >
 	
-	<h3>feast  invitation</h3><br />
+	<h3>competition  invitation</h3><br />
 	<% tickets = User.find(session[:user_id]).participations.where(feast_id: feast.id).count - 1 %>
 	<p>
 		dear <%=User.find(fiv.receiver_id).name%><br />
 		<%=User.find(fiv.sender_id).name%> has invitad you 
-		to eat with him <br />
+		to compete with him <br />
 		at <%= feast.feast_place %><br />
 		at <%= feast.feast_time %><br />
 		he wants you to bring 

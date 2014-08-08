@@ -40,6 +40,7 @@ module ApplicationHelper
        image_tag dish.image_url.to_s, :size => size 
     end
   end
+  
   def one_unpersisted?(grp='')
     one_not_db = false
     grp.each do |g|

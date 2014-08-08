@@ -6,8 +6,8 @@
         <%= link_to :action =>'show', controller: 'feasts', :id => fiv.feast_id, :class => 'action' do %>
 		<%=feast_image(feast)%><br />
         <% end %>
-		<p>feast time: <%= feast.feast_time %></p>
-		<p>feast place:<%=feast.feast_place%></p><br /><br />
+		<p>competition time: <%= feast.feast_time %></p>
+		<p>competition place:<%=feast.feast_place%></p><br /><br />
 		<%= render(partial: 'shared/feast_invt', locals: {feast: feast,fiv: fiv})%>
 	<% end %>
 	
@@ -18,13 +18,13 @@
 			 <% @posts.each do |post| %>
 		<%feast = Feast.find(post.feast_id)%>      
         <%= image_tag(feast.image_url.to_s, :size => '300x300')%><br />
-        <p>feast time: <%=feast.feast_time%> and place :<%=feast.feast_place%></p>
+        <p>competition time: <%=feast.feast_time%> and place :<%=feast.feast_place%></p>
 		<p><u>manager messege</u></p><br /> 
 		<%= feast.content %><br />
 			
 			
 			<!--fix it -->
-			<%= button_to 'join feast'%>
+			<%= button_to 'join competition'%>
 			<%= button_to 'maybe'%>
 			<%= button_to 'reject invitation'%>
        	 	<%= link_to 'Delete post', {action: 'delete', controller: 'feast_invts'} %>

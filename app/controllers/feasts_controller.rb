@@ -23,7 +23,7 @@ class FeastsController < ApplicationController
   def create
    @feast = Feast.new(feast_params)
    if @feast.save
-      flash[:notice]="the feast has been saved. all participants will get invitations and assignments. hope they answer soon"
+      flash[:notice]="the competition has been saved. all participants will get invitations and assignments. hope they answer soon"
       
       # creates new participants invitations
       @feast.users.distinct.to_a.each do |u|
@@ -48,7 +48,7 @@ class FeastsController < ApplicationController
     @feast = Feast.find(params[:id])
     if @feast.update_attributes(feast_params)
       unless params[:invtupdate]
-        flash[:notice] = "feast updated."
+        flash[:notice] = "competition updated."
       # creates new participants invitations
         
         @feast.users.distinct.to_a.each do |u|
@@ -99,7 +99,7 @@ class FeastsController < ApplicationController
   def destroy
     feast = Feast.find(params[:id])
     feast.destroy
-    flash[:notice] = "feast canceled"
+    flash[:notice] = "competition canceled"
     redirect_to(:action => 'list')
   end
 
@@ -110,6 +110,16 @@ private
          params.require(:feast).permit(:id, :name, :image, :feast_place, :feast_time,courses_attributes: [:id, :dish_id, :_destroy,:feast_id],participations_attributes: [:id,:feast_id, :user_id, :_destroy,:manager,:coming,obligations_attributes: [:id, :dish_id, :_destroy, :participation_id,:agreed]])
    end
      
+  def one_unpersisted?(grp='')
+    one_not_db = false
+    grp.each do |g|
+      unless g.persisted?
+        one_not_db = true
+      end
+    end
+  one_not_db
+  end
+
 end
 
 

@@ -29,8 +29,8 @@
 		 <%= image_tag('add_participants.png', :size => '100x100', :alt => 'Photo Gallery') %>
 		 <%end%>
     </u>
-</h2>	
-
+</h2>	<br />
+<p class="boldd">drag a dog on a user to assign it!</p>
 <br /><br /><br />	 
 
 	<%= content_tag "div",:id => "par", data: {myid: User.find(session[:user_id]).id, myname: User.find(session[:user_id]).name, myimage: User.find(session[:user_id]).image} do%>

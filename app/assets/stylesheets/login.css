@@ -248,6 +248,11 @@ footer {
 .small-table th{
 	text-decoration:none;
 }
+.boldd{
+	color:red;
+	font-height:2em;
+	text-decoration:underline;
+}
 
 /* some jquery UI classes -------------------------------------- */
 /*

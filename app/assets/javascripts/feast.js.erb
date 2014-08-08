@@ -215,7 +215,7 @@ $(document).ready(function(){
 		$(divArray[i]).prepend(dishBlock);
 	    $(divArray[i]).draggable({ 
 			start: function(){
-			dishId = Number($(this).find("a").attr("href").slice(8,9));
+			dishId = Number($(this).find("a").attr("href").slice(8,1000000000000));
 		},
 		revert: true
 	  });		

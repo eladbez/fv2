@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723095228) do
+ActiveRecord::Schema.define(version: 20140807085851) do
 
   create_table "belongings", force: true do |t|
     t.integer  "user_id"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140723095228) do
     t.datetime "updated_at"
     t.integer  "feast_id"
     t.integer  "user_id"
-    t.binary   "image"
     t.boolean  "shared",       default: true
+    t.string   "image",        default: "../dog_normal.jpg"
   end
 
   add_index "dishes", ["feast_id"], name: "index_dishes_on_feast_id", using: :btree
@@ -66,9 +66,9 @@ ActiveRecord::Schema.define(version: 20140723095228) do
     t.datetime "feast_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
     t.string   "name",        default: "has no name"
     t.text     "content"
+    t.string   "image",       default: "../compet_normal.jpg"
   end
 
   create_table "friend_invts", force: true do |t|
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 20140723095228) do
   create_table "users", force: true do |t|
     t.string   "name",            limit: 75
     t.string   "password",        limit: 40
-    t.string   "email",                      default: "", null: false
+    t.string   "email",                      default: "",                   null: false
     t.string   "hashed_password"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -186,7 +186,7 @@ ActiveRecord::Schema.define(version: 20140723095228) do
     t.string   "apartment_num"
     t.string   "neighborhood"
     t.string   "kosher"
-    t.string   "image"
+    t.string   "image",                      default: "../user_normal.jpg"
   end
 
 end

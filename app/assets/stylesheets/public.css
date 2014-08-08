@@ -166,6 +166,9 @@ footer {
 .notice{
 	clear:both;
 }
+.cl_both{
+		clear:both;
+ }
 #photoShow1{
 	margin-left:40px;
 }
