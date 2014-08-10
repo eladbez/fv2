@@ -1,6 +1,8 @@
 class DishesController < ApplicationController
   
  
+  def about 
+  end
   
   def index #only my recipes
     @dishes = User.find(session[:user_id]).dishes.to_a

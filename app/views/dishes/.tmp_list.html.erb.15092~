@@ -1,0 +1,7 @@
+    <%= link_to("<<back to search" , root_path) %>&nbsp;&nbsp;&nbsp;
+	<%= link_to("Add New dog", {:action => 'new'}) %>
+	
+	<h1><u>hello doggi! </u></h1>
+		<br />
+		
+	<%= render(partial: 'dishes_list', locals: {dishes: @results}) %>

@@ -1,0 +1,32 @@
+
+<h2><u>general dogs to compete - search for dogs</u></h2>
+<br /><br />
+<p>dog book books dogs to organize dog competitions.</p>
+<p>you can log in to organize your own competition. or look at </p>
+<p>general dog bank to know which dogs you can use from the dog bank.</p>
+<p>you can catalog your dog at the general dog bank.</p>
+<p>please bring it to us three days from cataloging</p>
+<p>our address: fork street 16, jerusalem</p>
+
+<%= form_tag(:action=>'list') do %>
+<table>
+	<tr>
+		<th><%=label_tag(:name)%></th>
+		<th><%=label_tag(:culture,"race")%></th>
+		<th><%=label_tag(:taste,"color")%></th>
+	</tr>
+		
+	<tr>	
+		<td><%= text_field_tag(:name) %></td>
+		<td><%= text_field_tag(:culture) %></td>
+		<td><%=select_tag("taste",options_for_select(["white","gray","black and white","brown","white-brown"]))%></td>
+	</tr>
+
+
+</table>
+  	
+		<%= submit_tag "find dog", :type => :image, :src => image_path("go-get.jpg") %>
+ 		
+ 		
+	</div>
+<% end %>

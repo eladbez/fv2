@@ -87,12 +87,14 @@ function printDish(dishIdF,dishNameF,imgSrcF){
 	var a = document.createElement("a");
 	a.setAttribute("href","/dishes/"+dishIdF);
 	a.setAttribute("id",new Date().getTime());
+	a.setAttribute("title","drag me to assign!!");
 	var aText = document.createTextNode(dishNameF);
 	var img = document.createElement("img");
 	img.setAttribute("alt","dish picture");
 	img.setAttribute("src",imgSrcF);
 	img.setAttribute("height","100");
 	img.setAttribute("width","100");
+	
 	var myDiv = document.createElement("div");
 	myDiv.className = "dish_block";
 	// a.className = "dish_block"; 

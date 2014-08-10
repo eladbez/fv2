@@ -1,0 +1,9 @@
+<h1><u> about dog book </u></h1>
+<p>dog book, books dogs to organize dog competitions.</p>
+<p>you can log in to organize your own competition. or look at </p>
+<p>our general dog bank, to know which dogs you can use from the dog bank.</p>
+<p>you can catalog your dog at the general dog bank.</p>
+<p>please bring it to us three days from cataloging</p>
+<p>our address: fork street 16, jerusalem</p>
+<br /><br />
+<%= link_to "search the general dog bank >>", {controller: 'dishes', action: 'sort_form'}   %>

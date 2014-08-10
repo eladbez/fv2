@@ -15,5 +15,8 @@
 //= require jquery-ui.min
 //= require public.js
 //= require_self
-
 // var $j = jQuery.noConflict();
+
+$(function() {
+    $( document ).tooltip();
+  });

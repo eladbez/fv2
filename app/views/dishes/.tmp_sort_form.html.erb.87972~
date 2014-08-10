@@ -1,0 +1,25 @@
+
+<h2><u>adopt a dog - search for dogs</u></h2>
+
+<%= form_tag(:action=>'list') do %>
+<table>
+	<tr>
+		<th><%=label_tag(:name)%></th>
+		<th><%=label_tag(:culture,"race")%></th>
+		<th><%=label_tag(:taste,"color")%></th>
+	</tr>
+		
+	<tr>	
+		<td><%= text_field_tag(:name) %></td>
+		<td><%= text_field_tag(:culture) %></td>
+		<td><%=select_tag("taste",options_for_select(["white","gray","black and white","brown","white-brown"]))%></td>
+	</tr>
+
+
+</table>
+  	
+		<%= submit_tag "find dog", :type => :image, :src => image_path("go-get.jpg") %>
+ 		
+ 		
+	</div>
+<% end %>

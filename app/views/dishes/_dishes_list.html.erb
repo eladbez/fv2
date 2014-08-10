@@ -10,8 +10,8 @@
 		</tr>
 <% dishes.each do |dish| %>
 	<tr>
-		<td><%= link_to(dish.name, dish_path(dish.id), :class => 'action')%></td>
-		<td>&nbsp;&nbsp;<%= link_to(dish_image(dish, '50x50'), dish_path(dish.id), :class => 'action')%></td>
+		<td><%= link_to(dish.name, dish_path(dish.id), :class => 'action', title: "show dog to adopt" ) %></td>
+		<td>&nbsp;&nbsp;<%= link_to(dish_image(dish, '50x50'), dish_path(dish.id), title: "show dog to adopt", :class => 'action')%></td>
 		<td>&nbsp;<%= dish.taste %></td>
 		<td>&nbsp;&nbsp;<%= dish.culture %></td>
 		<td>&nbsp;&nbsp;<%= dish.mealpart %></td>
